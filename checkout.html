@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — DEEPFLOW</title>
+  <link rel="icon" type="image/svg+xml" href="assets/icone.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="checkout-page">
+
+  <!-- Header checkout -->
+  <header class="checkout-header">
+    <a href="carrinho.html" style="position:absolute;left:var(--gutter);font-size:12px;color:var(--ink-muted);display:flex;align-items:center;gap:6px;letter-spacing:0.06em;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Voltar
+    </a>
+    <a href="index.html">
+      <img src="assets/logo.svg" alt="Deepflow" class="checkout-header-logo">
+    </a>
+    <div class="checkout-header-secure" style="position:absolute;right:var(--gutter);">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Compra segura
+    </div>
+  </header>
+
+  <!-- Progress -->
+  <div class="checkout-progress">
+    <div class="checkout-step is-active" id="step1Indicator">
+      <span class="step-num">1</span>
+      <span>Identificação</span>
+    </div>
+    <span class="step-sep"></span>
+    <div class="checkout-step" id="step2Indicator">
+      <span class="step-num">2</span>
+      <span>Entrega</span>
+    </div>
+    <span class="step-sep"></span>
+    <div class="checkout-step" id="step3Indicator">
+      <span class="step-num">3</span>
+      <span>Pagamento</span>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="checkout-body">
+
+    <!-- ---- MAIN FORM ---- -->
+    <div class="checkout-main">
+
+      <!-- STEP 1 — Identificação -->
+      <div class="checkout-panel is-active" id="panel1">
+        <h2 class="checkout-section-title">Identificação</h2>
+
+        <div class="field">
+          <label class="field-label" for="coEmail">E-mail</label>
+          <input class="field-input" type="email" id="coEmail" placeholder="seu@email.com" autocomplete="email">
+          <p class="field-hint">Usaremos para enviar o acompanhamento do pedido.</p>
+        </div>
+
+        <div style="margin:24px 0;padding:16px 20px;border:1px solid var(--line-soft);background:var(--paper-warm);">
+          <p style="font-size:13px;font-weight:600;margin-bottom:6px;">Tem conta Deepflow?</p>
+          <p style="font-size:12px;color:var(--ink-muted);margin-bottom:14px;">Faça login para ver seus pedidos anteriores, endereços salvos e pontos acumulados.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="entrar.html" class="btn btn-ghost" style="padding:10px 20px;font-size:11px;">Entrar</a>
+            <a href="cadastrar.html" class="btn" style="padding:10px 20px;font-size:11px;border:1px solid var(--line-soft);color:var(--ink-muted);">Criar conta</a>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;font-size:12px;color:var(--ink-muted);">
+          <input type="checkbox" id="guestCheck" style="width:16px;height:16px;flex-shrink:0;cursor:pointer;">
+          <label for="guestCheck" style="cursor:pointer;">Continuar como visitante (sem criar conta)</label>
+        </div>
+
+        <div class="checkout-nav" style="border-top:none;padding-top:0;justify-content:flex-end;">
+          <button class="btn btn-primary" id="toStep2" style="padding:16px 36px;font-size:12px;letter-spacing:0.18em;">
+            Continuar para Entrega →
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 2 — Entrega -->
+      <div class="checkout-panel" id="panel2">
+        <h2 class="checkout-section-title">Endereço de entrega</h2>
+
+        <div class="field-row" style="grid-template-columns:160px 1fr;margin-bottom:0;">
+          <div class="field">
+            <label class="field-label" for="coCep">CEP</label>
+            <div style="display:flex;gap:8px;">
+              <input class="field-input" type="text" id="coCep" placeholder="00000-000" maxlength="9" style="flex:1;">
+              <button class="btn btn-ghost" id="coCepBtn" style="padding:13px 16px;font-size:11px;white-space:nowrap;flex-shrink:0;">Buscar</button>
+            </div>
+            <a href="https://buscacepinter.correios.com.br" target="_blank" rel="noopener" class="field-hint" style="text-decoration:underline;cursor:pointer;">Não sei meu CEP</a>
+          </div>
+        </div>
+
+        <div id="addressFields" style="margin-top:4px;">
+          <div class="field-row">
+            <div class="field" style="grid-column:1/-1;">
+              <label class="field-label" for="coStreet">Rua / Avenida</label>
+              <input class="field-input" type="text" id="coStreet" placeholder="Rua Exemplo" autocomplete="street-address">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label class="field-label" for="coNumber">Número</label>
+              <input class="field-input" type="text" id="coNumber" placeholder="123">
+            </div>
+            <div class="field">
+              <label class="field-label" for="coComplement">Complemento <span style="font-weight:400;text-transform:none;letter-spacing:0;">(opcional)</span></label>
+              <input class="field-input" type="text" id="coComplement" placeholder="Apto 42">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label class="field-label" for="coDistrict">Bairro</label>
+              <input class="field-input" type="text" id="coDistrict" placeholder="Centro">
+            </div>
+            <div class="field">
+              <label class="field-label" for="coCity">Cidade</label>
+              <input class="field-input" type="text" id="coCity" placeholder="São Paulo">
+            </div>
+          </div>
+          <div class="field-row" style="grid-template-columns:120px 1fr;">
+            <div class="field">
+              <label class="field-label" for="coState">Estado</label>
+              <select class="field-input field-input--select" id="coState">
+                <option value="">UF</option>
+                <option>SP</option><option>RJ</option><option>MG</option><option>RS</option>
+                <option>PR</option><option>SC</option><option>BA</option><option>CE</option>
+                <option>PE</option><option>GO</option><option>DF</option><option>AM</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="field-label" for="coRecipient">Nome do destinatário</label>
+              <input class="field-input" type="text" id="coRecipient" placeholder="Ricardo Mendes" autocomplete="name">
+            </div>
+          </div>
+        </div>
+
+        <!-- Métodos de envio -->
+        <h3 style="font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-muted);margin:28px 0 16px;">Método de envio</h3>
+        <div class="shipping-options">
+          <label class="shipping-opt is-selected">
+            <input type="radio" name="envio" value="pac" checked>
+            <span class="shipping-opt-radio"></span>
+            <span class="shipping-opt-info">
+              <span class="shipping-opt-name">PAC — Correios</span>
+              <span class="shipping-opt-eta">7 a 12 dias úteis</span>
+            </span>
+            <span class="shipping-opt-price is-free">Grátis</span>
+          </label>
+          <label class="shipping-opt">
+            <input type="radio" name="envio" value="sedex">
+            <span class="shipping-opt-radio"></span>
+            <span class="shipping-opt-info">
+              <span class="shipping-opt-name">SEDEX — Correios</span>
+              <span class="shipping-opt-eta">2 a 5 dias úteis</span>
+            </span>
+            <span class="shipping-opt-price">R$ 34,90</span>
+          </label>
+          <label class="shipping-opt">
+            <input type="radio" name="envio" value="motoboy">
+            <span class="shipping-opt-radio"></span>
+            <span class="shipping-opt-info">
+              <span class="shipping-opt-name">Motoboy — São Paulo capital</span>
+              <span class="shipping-opt-eta">Mesmo dia (pedidos até 14h)</span>
+            </span>
+            <span class="shipping-opt-price">R$ 24,90</span>
+          </label>
+        </div>
+
+        <div class="checkout-nav">
+          <button class="checkout-back-link" id="back1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+            Voltar
+          </button>
+          <button class="btn btn-primary" id="toStep3" style="padding:16px 36px;font-size:12px;letter-spacing:0.18em;">
+            Continuar para Pagamento →
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 3 — Pagamento -->
+      <div class="checkout-panel" id="panel3">
+        <h2 class="checkout-section-title">Pagamento</h2>
+
+        <!-- Tabs -->
+        <div class="payment-tabs" role="tablist">
+          <button class="pay-tab-btn is-active" data-tab="card" role="tab" aria-selected="true">Cartão</button>
+          <button class="pay-tab-btn" data-tab="pix" role="tab" aria-selected="false">Pix</button>
+          <button class="pay-tab-btn" data-tab="boleto" role="tab" aria-selected="false">Boleto</button>
+        </div>
+
+        <!-- Cartão -->
+        <div class="pay-panel is-active" id="tab-card">
+          <div class="field">
+            <label class="field-label" for="cardName">Nome no cartão</label>
+            <input class="field-input" type="text" id="cardName" placeholder="RICARDO R MENDES" autocomplete="cc-name" style="text-transform:uppercase;">
+          </div>
+          <div class="field">
+            <label class="field-label" for="cardNumber">Número do cartão</label>
+            <input class="field-input" type="text" id="cardNumber" placeholder="0000 0000 0000 0000" maxlength="19" autocomplete="cc-number">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label class="field-label" for="cardExpiry">Validade</label>
+              <input class="field-input" type="text" id="cardExpiry" placeholder="MM/AA" maxlength="5" autocomplete="cc-exp">
+            </div>
+            <div class="field">
+              <label class="field-label" for="cardCvv">CVV</label>
+              <input class="field-input" type="text" id="cardCvv" placeholder="123" maxlength="4" autocomplete="cc-csc">
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="cardInstall">Parcelamento</label>
+            <select class="field-input field-input--select" id="cardInstall">
+              <option>1× de R$ 1.479,00 (sem juros)</option>
+              <option>2× de R$ 739,50 (sem juros)</option>
+              <option>3× de R$ 493,00 (sem juros)</option>
+              <option>4× de R$ 369,75 (sem juros)</option>
+              <option>5× de R$ 295,80 (sem juros)</option>
+              <option selected>6× de R$ 246,50 (sem juros)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Pix -->
+        <div class="pay-panel" id="tab-pix">
+          <div class="pix-wrap">
+            <p style="font-family:var(--font-display);font-size:20px;font-weight:400;letter-spacing:-0.01em;">Pague com Pix e receba 5% de desconto</p>
+            <div class="pix-qr">[ QR Code ]</div>
+            <div class="pix-key">
+              <span style="font-size:11px;word-break:break-all;">deepflow@pagamento.com.br</span>
+              <button onclick="navigator.clipboard?.writeText('deepflow@pagamento.com.br');this.textContent='Copiado!';setTimeout(()=>this.textContent='Copiar',2000)">Copiar</button>
+            </div>
+            <p class="pix-info">O QR Code expira em <strong>30 minutos</strong>. Após o pagamento, seu pedido é confirmado automaticamente.</p>
+          </div>
+        </div>
+
+        <!-- Boleto -->
+        <div class="pay-panel" id="tab-boleto">
+          <div style="padding:28px;background:var(--paper-warm);text-align:center;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40" style="margin:0 auto 16px;display:block;color:var(--ink-muted);"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+            <p style="font-family:var(--font-display);font-size:18px;font-weight:400;margin-bottom:8px;">Boleto bancário</p>
+            <p style="font-size:13px;color:var(--ink-muted);line-height:1.6;max-width:36ch;margin:0 auto 20px;">Vencimento em 3 dias úteis. Aprovação em até 2 dias úteis após o pagamento.</p>
+            <p style="font-family:var(--font-display);font-size:24px;font-weight:500;margin-bottom:4px;">R$ 1.479,00</p>
+            <p style="font-size:11px;color:var(--ink-muted);">O boleto será gerado ao finalizar o pedido.</p>
+          </div>
+        </div>
+
+        <div class="checkout-nav">
+          <button class="checkout-back-link" id="back2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+            Voltar
+          </button>
+          <button class="btn btn-primary" id="finishBtn" style="padding:16px 36px;font-size:12px;letter-spacing:0.18em;">
+            Finalizar pedido
+          </button>
+        </div>
+      </div>
+
+    </div><!-- /checkout-main -->
+
+    <!-- ---- ORDER SUMMARY ---- -->
+    <div class="checkout-summary-col">
+      <p class="co-summary-title">Resumo do pedido</p>
+      <div class="co-summary-items">
+        <div class="co-summary-item">
+          <div class="co-item-img"><span class="co-item-qty-badge">1</span></div>
+          <div><p class="co-item-name">Kimono Raiz Pearl Weave</p><p class="co-item-variant">Branco · A2</p></div>
+          <span class="co-item-price">R$ 1.290,00</span>
+        </div>
+        <div class="co-summary-item">
+          <div class="co-item-img"><span class="co-item-qty-badge">1</span></div>
+          <div><p class="co-item-name">Camiseta Fluir</p><p class="co-item-variant">Off-white · M</p></div>
+          <span class="co-item-price">R$ 189,00</span>
+        </div>
+      </div>
+      <div class="co-summary-rows">
+        <div class="co-summary-row"><span class="label">Subtotal</span><span>R$ 1.479,00</span></div>
+        <div class="co-summary-row"><span class="label">Frete</span><span style="color:#16a34a;">Grátis</span></div>
+        <div class="co-summary-row"><span class="label">Desconto</span><span>—</span></div>
+      </div>
+      <div class="co-total">
+        <span class="label">Total</span>
+        <span class="val">R$ 1.479,00</span>
+      </div>
+      <p style="font-size:11px;color:var(--ink-muted);text-align:right;margin-top:4px;">ou 6× R$ 246,50 sem juros</p>
+    </div>
+
+  </div><!-- /checkout-body -->
+
+  <script>
+    let currentStep = 1;
+    const steps = [null, 'panel1','panel2','panel3'];
+    const indicators = [null, 'step1Indicator','step2Indicator','step3Indicator'];
+
+    function goTo(n) {
+      document.getElementById(steps[currentStep]).classList.remove('is-active');
+      document.getElementById(indicators[currentStep]).classList.remove('is-active');
+      if (currentStep < n) document.getElementById(indicators[currentStep]).classList.add('is-done');
+      currentStep = n;
+      document.getElementById(steps[n]).classList.add('is-active');
+      document.getElementById(indicators[n]).classList.add('is-active');
+      document.getElementById(indicators[n]).classList.remove('is-done');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.getElementById('toStep2').addEventListener('click', () => goTo(2));
+    document.getElementById('toStep3').addEventListener('click', () => goTo(3));
+    document.getElementById('back1').addEventListener('click', () => goTo(1));
+    document.getElementById('back2').addEventListener('click', () => goTo(2));
+    document.getElementById('finishBtn').addEventListener('click', () => window.location.href = 'checkout-sucesso.html');
+
+    // Payment tabs
+    document.querySelectorAll('.pay-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.pay-tab-btn').forEach(b => { b.classList.remove('is-active'); b.setAttribute('aria-selected','false'); });
+        document.querySelectorAll('.pay-panel').forEach(p => p.classList.remove('is-active'));
+        btn.classList.add('is-active'); btn.setAttribute('aria-selected','true');
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('is-active');
+      });
+    });
+
+    // Shipping options
+    document.querySelectorAll('.shipping-opt').forEach(opt => {
+      opt.addEventListener('click', () => {
+        document.querySelectorAll('.shipping-opt').forEach(o => o.classList.remove('is-selected'));
+        opt.classList.add('is-selected');
+        opt.querySelector('input').checked = true;
+      });
+    });
+
+    // CEP mock autofill
+    document.getElementById('coCepBtn').addEventListener('click', () => {
+      const cep = document.getElementById('coCep').value.replace(/\D/g,'');
+      if (cep.length === 8) {
+        document.getElementById('coStreet').value = 'Rua das Artes Marciais';
+        document.getElementById('coDistrict').value = 'Vila Olímpia';
+        document.getElementById('coCity').value = 'São Paulo';
+        document.getElementById('coState').value = 'SP';
+      }
+    });
+    document.getElementById('coCep').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('coCepBtn').click(); });
+
+    // Card number mask
+    document.getElementById('cardNumber').addEventListener('input', function() {
+      let v = this.value.replace(/\D/g,'').substring(0,16);
+      this.value = v.replace(/(.{4})/g,'$1 ').trim();
+    });
+    document.getElementById('cardExpiry').addEventListener('input', function() {
+      let v = this.value.replace(/\D/g,'').substring(0,4);
+      if (v.length >= 2) v = v.substring(0,2) + '/' + v.substring(2);
+      this.value = v;
+    });
+  </script>
+</body>
+</html>

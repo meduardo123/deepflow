@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@import "../styles.css";
+
+/* Remap font variables to next/font CSS variables */
+:root {
+  --font-display: var(--font-fraunces), 'Times New Roman', serif;
+  --font-body: var(--font-manrope), system-ui, -apple-system, sans-serif;
+}

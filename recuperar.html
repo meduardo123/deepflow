@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recuperar senha — DEEPFLOW</title>
+  <link rel="icon" type="image/svg+xml" href="assets/icone.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-page">
+
+  <header class="auth-header" style="position:relative;">
+    <a href="entrar.html" class="auth-back" aria-label="Voltar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Voltar
+    </a>
+    <a href="index.html">
+      <img src="assets/logo.svg" alt="Deepflow" class="auth-header-logo">
+    </a>
+  </header>
+
+  <div class="auth-body">
+    <!-- Tela de envio -->
+    <div class="auth-card" id="formView">
+      <span class="auth-card-eyebrow">Acesso</span>
+      <h1 class="auth-card-title">Recuperar <em>senha.</em></h1>
+      <p style="font-size:14px;color:var(--ink-muted);line-height:1.6;margin-bottom:28px;">
+        Insira o e-mail cadastrado. Enviaremos um link para você criar uma nova senha.
+      </p>
+      <form id="recoverForm" novalidate>
+        <div class="field">
+          <label class="field-label" for="email">E-mail</label>
+          <input class="field-input" type="email" id="email" name="email" placeholder="seu@email.com" autocomplete="email" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" style="padding:16px;font-size:12px;letter-spacing:0.18em;">
+          Enviar instruções
+        </button>
+      </form>
+      <div class="auth-links">
+        Lembrou a senha? <a href="entrar.html">Voltar para login</a>
+      </div>
+    </div>
+
+    <!-- Tela de confirmação (hidden inicialmente) -->
+    <div class="auth-card" id="successView" style="display:none;text-align:center;">
+      <div style="width:56px;height:56px;border-radius:50%;background:var(--paper-warm);border:1px solid var(--line-soft);display:grid;place-items:center;margin:0 auto 24px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
+      <span class="auth-card-eyebrow">Enviado</span>
+      <h2 class="auth-card-title" style="font-size:28px;">Verifique <em>seu e-mail.</em></h2>
+      <p style="font-size:14px;color:var(--ink-muted);line-height:1.6;margin-bottom:28px;">
+        Enviamos as instruções para <strong id="sentEmail"></strong>. O link expira em 30 minutos.
+      </p>
+      <a href="entrar.html" class="btn btn-primary btn-block" style="padding:16px;font-size:12px;letter-spacing:0.18em;text-align:center;">
+        Voltar para login
+      </a>
+      <div class="auth-links">
+        Não recebeu? <a href="#" id="resendBtn">Reenviar e-mail</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="auth-footer">
+    © 2026 Deepflow · <a href="#">Privacidade</a> · <a href="#">Termos</a>
+  </footer>
+
+  <script>
+    document.getElementById('recoverForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      document.getElementById('sentEmail').textContent = email;
+      document.getElementById('formView').style.display = 'none';
+      document.getElementById('successView').style.display = 'block';
+    });
+  </script>
+</body>
+</html>

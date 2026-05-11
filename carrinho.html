@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho — DEEPFLOW</title>
+  <link rel="icon" type="image/svg+xml" href="assets/icone.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    <div class="announcement-track">
+      <span>FRETE GRÁTIS ACIMA DE R$ 499</span><span class="dot">•</span>
+      <span>PARCELE EM ATÉ 6X SEM JUROS</span><span class="dot">•</span>
+      <span>NOVA COLEÇÃO — RAIZ</span><span class="dot">•</span>
+      <span>FRETE GRÁTIS ACIMA DE R$ 499</span><span class="dot">•</span>
+      <span>PARCELE EM ATÉ 6X SEM JUROS</span><span class="dot">•</span>
+      <span>NOVA COLEÇÃO — RAIZ</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="header-left">
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        <nav class="nav-desktop">
+          <a href="plp.html" class="nav-link" data-menu="kimono">KIMONO</a>
+          <a href="#" class="nav-link" data-menu="rashguard">RASH GUARD</a>
+          <a href="#" class="nav-link" data-menu="casual">CASUAL</a>
+          <a href="#" class="nav-link" data-menu="acessorios">ACESSÓRIOS</a>
+          <a href="#" class="nav-link nav-link--accent">RAIZ</a>
+        </nav>
+      </div>
+      <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Deepflow"/></a>
+      <div class="header-right">
+        <button class="header-btn" aria-label="Buscar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+        <a href="entrar.html" class="header-btn header-btn--label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg><span>Entrar</span></a>
+        <button class="header-btn header-btn--cart has-items" id="cartBtn" aria-label="Carrinho"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 7h14l-1.5 11.5a2 2 0 0 1-2 1.5h-7a2 2 0 0 1-2-1.5L5 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg><span class="cart-count" id="cartCount">2</span></button>
+      </div>
+    </div>
+    <div class="mega-menu" id="megaMenu">
+      <div class="mega-menu-inner">
+        <div class="mega-col"><h4>Kimonos</h4><ul><li><a href="#">Linha Pro Competition</a></li><li><a href="#">Linha Training</a></li><li><a href="#">Linha Light</a></li></ul></div>
+        <div class="mega-col"><h4>Por Cor</h4><ul><li><a href="#">Branco</a></li><li><a href="#">Preto</a></li><li><a href="#">Azul</a></li></ul></div>
+        <div class="mega-col"><h4>Recursos</h4><ul><li><a href="#">Guia de Tamanhos</a></li><li><a href="#">Cuidados e Lavagem</a></li></ul></div>
+        <div class="mega-col mega-col--feature"><div class="mega-feature"><div class="mega-feature-img"></div><div class="mega-feature-text"><span class="eyebrow">Destaque</span><p>Kimono Raiz — edição limitada 550gsm.</p><a href="pdp.html" class="link-arrow">Ver →</a></div></div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">/</span><span>Carrinho</span></nav>
+
+  <!-- CART PAGE -->
+  <div class="cart-page-wrap">
+    <h1 class="cart-page-title">Seu carrinho</h1>
+    <p class="cart-page-count" id="cartPageCount">2 itens</p>
+
+    <div class="cart-page-layout">
+      <!-- Itens -->
+      <div class="cart-page-col-items">
+
+        <!-- Progress frete grátis -->
+        <div class="free-ship-bar" style="margin-bottom:28px;">
+          <p class="free-ship-text">Faltam <strong>R$ 209,00</strong> para frete grátis</p>
+          <div class="free-ship-track"><div class="free-ship-fill" style="width:58%"></div></div>
+          <p style="font-size:11px;color:var(--ink-muted);letter-spacing:0.06em;">R$ 290,00 de R$ 499,00</p>
+        </div>
+
+        <!-- Item 1 -->
+        <div class="cart-pg-item">
+          <div class="cart-pg-img"></div>
+          <div class="cart-pg-info">
+            <p class="cart-pg-cat">Kimono</p>
+            <h3 class="cart-pg-name">Kimono Raiz Pearl Weave</h3>
+            <p class="cart-pg-variants">Branco · Tamanho A2</p>
+            <div class="cart-pg-qty" id="qty1">
+              <button data-dir="-1" data-target="qty1" aria-label="Diminuir">−</button>
+              <span id="qtyVal1">1</span>
+              <button data-dir="1" data-target="qty1" aria-label="Aumentar">+</button>
+            </div>
+          </div>
+          <div class="cart-pg-side">
+            <p class="cart-pg-price" id="price1">R$ 1.290,00</p>
+            <button class="cart-pg-remove" data-item="1">Remover</button>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="cart-pg-item" id="item2">
+          <div class="cart-pg-img"></div>
+          <div class="cart-pg-info">
+            <p class="cart-pg-cat">Casual</p>
+            <h3 class="cart-pg-name">Camiseta Fluir</h3>
+            <p class="cart-pg-variants">Off-white · Tamanho M</p>
+            <div class="cart-pg-qty" id="qty2">
+              <button data-dir="-1" data-target="qty2" aria-label="Diminuir">−</button>
+              <span id="qtyVal2">1</span>
+              <button data-dir="1" data-target="qty2" aria-label="Aumentar">+</button>
+            </div>
+          </div>
+          <div class="cart-pg-side">
+            <p class="cart-pg-price" id="price2">R$ 189,00</p>
+            <button class="cart-pg-remove" data-item="2">Remover</button>
+          </div>
+        </div>
+
+        <!-- Sugestões -->
+        <div style="margin-top:56px;">
+          <header class="section-head section-head--row" style="margin-bottom:24px;">
+            <div><span class="eyebrow">Você pode gostar</span><h2 class="section-title" style="font-size:clamp(22px,3vw,36px);">Completa <em>o pedido</em></h2></div>
+          </header>
+          <div class="products-grid" style="grid-template-columns:repeat(3,1fr);">
+            <article class="product-card" data-product="s-1" data-name="Rash Guard Profundo M/L" data-price="349">
+              <div class="product-media"><div class="media-placeholder product-img"><span class="placeholder-label">[ Rash Guard ]</span></div><button class="product-quick-add">+ adicionar</button></div>
+              <div class="product-info"><h3 class="product-name">Rash Guard Profundo M/L</h3><p class="product-desc">Compressão técnica · UV50+</p><p class="product-price">R$ 349<span>,00</span></p></div>
+            </article>
+            <article class="product-card" data-product="s-2" data-name="Faixa Oficial Deepflow" data-price="259">
+              <div class="product-media"><div class="media-placeholder product-img"><span class="placeholder-label">[ Faixa ]</span></div><button class="product-quick-add">+ adicionar</button></div>
+              <div class="product-info"><h3 class="product-name">Faixa Oficial Deepflow</h3><p class="product-desc">Ponta bordada · algodão</p><p class="product-price">R$ 259<span>,00</span></p></div>
+            </article>
+            <article class="product-card" data-product="s-3" data-name="Shorts Grappling" data-price="249">
+              <div class="product-media"><div class="media-placeholder product-img"><span class="placeholder-label">[ Shorts ]</span></div><button class="product-quick-add">+ adicionar</button></div>
+              <div class="product-info"><h3 class="product-name">Shorts Grappling</h3><p class="product-desc">Preto · elastano 4-way</p><p class="product-price">R$ 249<span>,00</span></p></div>
+            </article>
+          </div>
+        </div>
+
+      </div><!-- /items -->
+
+      <!-- Sidebar -->
+      <div class="cart-sidebar">
+        <div class="cart-summary-box">
+          <p class="cart-summary-title">Resumo do pedido</p>
+
+          <div class="summary-row"><span class="summary-row-label">Subtotal</span><span class="summary-row-val" id="summarySubtotal">R$ 1.479,00</span></div>
+          <div class="summary-row"><span class="summary-row-label">Frete</span><span class="summary-row-val" id="summaryShip">Calcular abaixo</span></div>
+          <div class="summary-row"><span class="summary-row-label">Desconto</span><span class="summary-row-val" id="summaryDiscount">—</span></div>
+
+          <div class="summary-total">
+            <span class="summary-total-label">Total</span>
+            <span class="summary-total-val" id="summaryTotal">R$ 1.479,00</span>
+          </div>
+          <p class="summary-installments">ou 6× R$ 246,50 sem juros</p>
+
+          <a href="checkout.html" class="btn btn-primary btn-block" style="padding:17px;font-size:12px;letter-spacing:0.18em;text-align:center;">
+            Ir para o checkout
+          </a>
+
+          <!-- Calcular frete -->
+          <div class="cep-form" style="margin-top:20px;padding-top:20px;border-top:1px solid var(--line-soft);">
+            <p style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:12px;">Calcular frete</p>
+            <div class="field-row" style="grid-template-columns:1fr auto;gap:8px;">
+              <input class="field-input" type="text" id="cepInput" placeholder="00000-000" maxlength="9">
+              <button class="btn btn-ghost" id="cepBtn" style="padding:13px 16px;font-size:11px;white-space:nowrap;">Calcular</button>
+            </div>
+            <div id="shippingResult" style="display:none;margin-top:16px;">
+              <div class="summary-row"><span class="summary-row-label">PAC · 7–10 dias</span><span class="summary-row-val summary-row-val--free">Grátis</span></div>
+              <div class="summary-row"><span class="summary-row-label">SEDEX · 2–4 dias</span><span class="summary-row-val">R$ 34,90</span></div>
+            </div>
+          </div>
+
+          <!-- Cupom -->
+          <div class="coupon-form">
+            <input class="field-input" type="text" id="couponInput" placeholder="Código de cupom">
+            <button class="btn btn-ghost" id="couponBtn" style="padding:13px 16px;font-size:11px;">Aplicar</button>
+          </div>
+          <p id="couponMsg" style="font-size:11px;color:var(--ink-muted);margin-top:8px;display:none;"></p>
+
+        </div>
+
+        <p style="font-size:11px;color:var(--ink-muted);text-align:center;margin-top:16px;line-height:1.6;">
+          Compra 100% segura · SSL · Cartão, Pix e Boleto
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand"><img src="assets/icone_branco.svg" alt="" class="footer-icon"><p class="footer-tagline">Fluir é profundo.<br>Vestuário e equipamento de jiu jitsu, sem atalho.</p><div class="footer-social"><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a></div></div>
+      <div class="footer-col"><h4>Loja</h4><ul><li><a href="plp.html">Kimonos</a></li><li><a href="#">Rash Guard</a></li><li><a href="#">Casual</a></li></ul></div>
+      <div class="footer-col"><h4>Ajuda</h4><ul><li><a href="#">Guia de tamanhos</a></li><li><a href="#">Trocas e devoluções</a></li><li><a href="#">Fale conosco</a></li></ul></div>
+      <div class="footer-col"><h4>Institucional</h4><ul><li><a href="#">Sobre a Deepflow</a></li><li><a href="#">Manifesto</a></li><li><a href="#">Privacidade</a></li></ul></div>
+      <div class="footer-col"><h4>Atendimento</h4><ul class="footer-contact"><li>contato@deepflow.com.br</li><li>WhatsApp · (11) 9 0000-0000</li></ul></div>
+    </div>
+    <div class="footer-bottom"><img src="assets/logo.svg" alt="Deepflow" class="footer-bigtype"></div>
+    <div class="footer-legal"><p>© 2026 Deepflow Jiu Jitsu Apparel</p><p>Pagamento seguro · Cartão · Pix · Boleto</p></div>
+  </footer>
+
+  <!-- Overlay + drawers -->
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer"><header class="cart-head"><h3>Seu carrinho <span id="cartHeaderCount">(0)</span></h3><button class="cart-close" id="cartClose" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6 6 18"/></svg></button></header><div class="cart-body" id="cartBody"><div class="cart-empty" id="cartEmpty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M5 7h14l-1.5 11.5a2 2 0 0 1-2 1.5h-7a2 2 0 0 1-2-1.5L5 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg><p>Seu carrinho está vazio.</p><button class="btn btn-ghost" id="emptyCloseBtn">Continuar comprando</button></div><ul class="cart-items" id="cartItems"></ul></div><footer class="cart-foot" id="cartFoot"><div class="cart-row"><span>Subtotal</span><span id="cartSubtotal">R$ 0,00</span></div><p class="cart-note">Frete e cupons calculados no checkout.</p><a href="checkout.html" class="btn btn-primary btn-block">Finalizar compra</a></footer></aside>
+  <aside class="mobile-menu" id="mobileMenu"><header class="mobile-menu-head"><img src="assets/logo.svg" alt="Deepflow" class="mobile-menu-logo"><button class="cart-close" id="mobileMenuClose" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6 6 18"/></svg></button></header><nav class="mobile-nav"><a href="plp.html">Kimono</a><a href="#">Rash Guard</a><a href="#" class="mobile-nav-accent">Raiz — Nova Coleção</a><div class="mobile-nav-divider"></div><a href="entrar.html">Entrar / Cadastrar</a></nav></aside>
+
+  <script src="script.js"></script>
+  <script>
+    const prices = { 1: 1290, 2: 189 };
+    const qtys   = { 1: 1, 2: 1 };
+
+    const fmt = n => 'R$ ' + n.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+
+    function updateSummary() {
+      const sub = Object.keys(qtys).filter(k => qtys[k] > 0).reduce((a, k) => a + prices[k] * qtys[k], 0);
+      document.getElementById('summarySubtotal').textContent = fmt(sub);
+      document.getElementById('summaryTotal').textContent = fmt(sub);
+      const count = Object.values(qtys).filter(v => v > 0).length;
+      document.getElementById('cartPageCount').textContent = count + (count === 1 ? ' item' : ' itens');
+      document.getElementById('cartCount').textContent = Object.values(qtys).reduce((a, v) => a + v, 0);
+      // free ship bar
+      const pct = Math.min(100, sub / 499 * 100);
+      document.querySelector('.free-ship-fill').style.width = pct + '%';
+      const rem = Math.max(0, 499 - sub);
+      if (rem > 0) {
+        document.querySelector('.free-ship-text').innerHTML = 'Faltam <strong>' + fmt(rem) + '</strong> para frete grátis';
+      } else {
+        document.querySelector('.free-ship-text').innerHTML = '<strong>Você ganhou frete grátis! 🎉</strong>';
+      }
+    }
+
+    document.querySelectorAll('.cart-pg-qty button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.target;
+        const key = target.replace('qty', '');
+        const dir = parseInt(btn.dataset.dir);
+        qtys[key] = Math.max(0, (qtys[key] || 1) + dir);
+        const el = document.getElementById('qtyVal' + key);
+        if (el) el.textContent = qtys[key];
+        if (qtys[key] === 0) document.getElementById('item' + key) && document.getElementById('item' + key).remove();
+        document.getElementById('price' + key) && (document.getElementById('price' + key).textContent = fmt(prices[key] * qtys[key]));
+        updateSummary();
+      });
+    });
+
+    document.querySelectorAll('.cart-pg-remove').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const key = btn.dataset.item;
+        qtys[key] = 0;
+        btn.closest('.cart-pg-item').remove();
+        updateSummary();
+      });
+    });
+
+    document.getElementById('cepBtn').addEventListener('click', () => {
+      const cep = document.getElementById('cepInput').value.trim();
+      if (cep.length >= 8) {
+        document.getElementById('shippingResult').style.display = 'block';
+        document.getElementById('summaryShip').textContent = 'Grátis (PAC)';
+      }
+    });
+
+    document.getElementById('cepInput').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('cepBtn').click(); });
+
+    document.getElementById('couponBtn').addEventListener('click', () => {
+      const code = document.getElementById('couponInput').value.trim().toUpperCase();
+      const msg = document.getElementById('couponMsg');
+      msg.style.display = 'block';
+      if (code === 'RAIZ10') {
+        msg.textContent = '✓ Cupom aplicado — 10% de desconto';
+        msg.style.color = '#16a34a';
+        document.getElementById('summaryDiscount').textContent = '−10%';
+      } else {
+        msg.textContent = 'Cupom inválido ou expirado.';
+        msg.style.color = 'var(--accent)';
+      }
+    });
+  </script>
+</body>
+</html>
